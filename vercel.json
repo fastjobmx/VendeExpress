@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.cjs",
+        "src": "api/send-contact-email.cjs",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/server.cjs"
+        "src": "/api/send-contact-email",
+        "dest": "/api/send-contact-email.cjs"
       }
     ]
   }
