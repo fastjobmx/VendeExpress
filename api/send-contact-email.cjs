@@ -1,12 +1,12 @@
 const nodemailer = require('nodemailer');
 
-// Configurar el transportador de Nodemailer
+// Configurar el transportador de Nodemailer usando variables de entorno
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'walylosada@gmail.com',
-    pass: 'pfxn ihee okge tcgy'
-  }
+    user: process.env.EMAIL_USER, // Variable de entorno para el correo
+    pass: process.env.EMAIL_PASS, // Variable de entorno para la contraseña
+  },
 });
 
 module.exports = async (req, res) => {
@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
     const { name, email, phone, plan, message } = req.body;
 
     const mailOptions = {
-      from: 'walylosada@gmail.com',
-      to: 'walylosada@gmail.com',
+      from: process.env.EMAIL_USER, // Usamos la misma variable de entorno
+      to: process.env.EMAIL_USER,   // El correo de destino también puede ser una variable si lo deseas
       subject: `Nuevo mensaje de ${name}`,
       text: `
         Nombre: ${name}
@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
         Teléfono: ${phone}
         Plan de interés: ${plan}
         Mensaje: ${message}
-      `
+      `,
     };
 
     // Enviar el correo
