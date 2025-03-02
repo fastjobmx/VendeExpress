@@ -1,12 +1,11 @@
 const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
 
-// Configurar el transportador de nodemailer
+// Configurar el transportador de Nodemailer
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'walylosada@gmail.com',
-    pass: 'pfxn ihee okge tcgy'  // Usa la contraseña de aplicación generada
+    pass: 'pfxn ihee okge tcgy'
   }
 });
 
