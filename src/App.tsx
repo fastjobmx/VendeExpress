@@ -16,6 +16,9 @@ const WorkProcess = lazy(() => import('./components/WorkProcess'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const PortfolioModal = lazy(() => import('./components/PortfolioModal'));
 const CookieConsent = lazy(() => import('./components/CookieConsent'));
+const AboutUs = lazy(() => import('./components/AboutUs')); // Usamos lazy loading si es necesario BlogPage
+const BlogPage = lazy(() => import('./components/BlogPage')); // Usamos lazy loading si es necesario 
+
 
 // Loading spinner component with improved visual appeal and dark mode support
 const LoadingSpinner = () => (
@@ -397,6 +400,40 @@ function App() {
               className="transition-colors duration-300"
             >
               <Contact darkMode={uiState.darkMode} />
+            </motion.div>
+          </section>
+
+          {/* AboutUs Section */}
+          <section 
+            id="aboutUs" 
+            ref={setSectionRef('aboutUs')} 
+            className={getSectionClass(false)}
+          >
+            <motion.div
+              variants={fadeInUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="transition-colors duration-300"
+            >
+              <AboutUs darkMode={uiState.darkMode} />
+            </motion.div>
+          </section>
+
+          {/* BlogPage Section */}
+          <section 
+            id="blogpage" 
+            ref={setSectionRef('blogpage')} 
+            className={getSectionClass(false)}
+          >
+            <motion.div
+              variants={fadeInUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="transition-colors duration-300"
+            >
+              <BlogPage darkMode={uiState.darkMode} />
             </motion.div>
           </section>
 
